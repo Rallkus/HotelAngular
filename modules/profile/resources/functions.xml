@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>begin</name>
+        <uri>begin</uri>
+    </function>
+    <function>
+        <name>get_birth</name>
+        <uri>get_birth</uri>
+    </function>
+    <function>
+        <name>update_birth</name>
+        <uri>update_birth</uri>
+    </function>
+</functions>

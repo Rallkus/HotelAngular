@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>begin</name>
+        <uri>begin</uri>
+    </function>
+    <function>
+        <name>register</name>
+        <uri>register</uri>
+    </function>
+    <function>
+        <name>register_user</name>
+        <uri>register_user</uri>
+    </function>
+    <function>
+        <name>login</name>
+        <uri>login</uri>
+    </function>
+    <function>
+        <name>logout</name>
+        <uri>logout</uri>
+    </function>
+    <function>
+        <name>login_social</name>
+        <uri>login_social</uri>
+    </function>
+    <function>
+        <name>activar</name>
+        <uri>activar</uri>
+    </function>
+    <function>
+        <name>recover_pass</name>
+        <uri>recover_pass</uri>
+    </function>
+    <function>
+        <name>update_pass</name>
+        <uri>update_pass</uri>
+    </function>
+    <function>
+        <name>cambiar_pass</name>
+        <uri>cambiar_pass</uri>
+    </function>
+    <function>
+        <name>email</name>
+        <uri>email</uri>
+    </function>
+</functions>

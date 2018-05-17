@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>begin</name>
+        <uri>begin</uri>
+    </function>
+    <function>
+        <name>upload</name>
+        <uri>upload</uri>
+    </function>
+    <function>
+        <name>validate</name>
+        <uri>validate</uri>
+    </function>
+    <function>
+        <name>delete</name>
+        <uri>delete</uri>
+    </function>
+</functions>

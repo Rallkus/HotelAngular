@@ -1,0 +1,38 @@
+<script type="text/javascript" src="<?php echo LOGIN_JS_PATH?>signup.js"></script>
+<form>
+  <br><br>
+  <div class="row uniform">
+    <div class="12u$" id="error_email" hidden>
+      <font color="red">&nbsp;&nbsp;No has introducido un email válido</font>
+    </div>
+    <div class="12u$" id="error_email_exists" hidden>
+      <font color="red">&nbsp;&nbsp;El email que has introducido ya está en uso</font>
+    </div>
+    <div class="12u$">
+      <input type="text" name="email" id="email" value="" placeholder="Email"/>
+    </div>
+    <div class="12u$" id="error_username" hidden>
+      <font color="red">&nbsp;&nbsp;No has introducido ningún nombre de usuario</font>
+    </div>
+    <div class="12u$" id="error_username_exists" hidden>
+      <font color="red">&nbsp;&nbsp;El nombre de usuario que has introducido ya está en uso</font>
+    </div>
+    <div class="12u$">
+      <input type="text" name="username" id="username" value="" placeholder="Username"/>
+    </div>
+    <!-- Break -->
+    <div class="12u$" id="error_pass" hidden>
+      <font color="red">&nbsp;&nbsp;No has introducido ninguna contraseña</font>
+    </div>
+    <div class="12u$">
+      <input type="password" name="pass" id="pass" value="" placeholder="Password"/>
+    </div>
+  </div>
+  <br><br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><input type="button" id="signup" value="Sign up" class="special" /></li>
+      <li align="right"><a href="../login/">Ya tengo una cuenta</a></li>
+    </ul>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+<script type="text/javascript" src="<?php echo LOGIN_JS_PATH?>recover.js"></script>
+<form>
+  <br><br>
+  <div class="row uniform">
+    <div class="12u$" id="error_correo" hidden>
+      <font color="red">&nbsp;&nbsp;El correo que has puesto no existe</font>
+    </div>
+    <div class="12u$" id="error_mail" hidden>
+      <font color="red">&nbsp;&nbsp;No es un correo válido</font>
+    </div>
+    <div class="12u$">
+      <input type="text" name="email" id="email" value="" placeholder="Correo electrónico"/>
+    </div>
+  </div>
+  <br><br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><input type="button" id="change" value="Enviar correo" class="special" /></li>
+      <li align="right"><a href="../../hotel/login/">He recordado la contraseña</a></li>
+    </ul>
+  </div>
+</form>

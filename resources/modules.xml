@@ -1,0 +1,30 @@
+<modules>
+    <module>
+        <name>home</name>
+        <uri>home</uri>
+    </module>
+    <module>
+        <name>hotel</name>
+        <uri>hotel</uri>
+    </module>
+    <module>
+        <name>contact</name>
+        <uri>contact</uri>
+    </module>
+    <module>
+        <name>list</name>
+        <uri>list</uri>
+    </module>
+    <module>
+        <name>login</name>
+        <uri>login</uri>
+    </module>
+    <module>
+        <name>profile</name>
+        <uri>profile</uri>
+    </module>
+    <module>
+        <name>details</name>
+        <uri>details</uri>
+    </module>
+</modules>

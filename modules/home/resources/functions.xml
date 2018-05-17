@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>begin</name>
+        <uri>begin</uri>
+    </function>
+    <function>
+        <name>list</name>
+        <uri>list</uri>
+    </function>
+    <function>
+        <name>details</name>
+        <uri>details</uri>
+    </function>
+    <function>
+        <name>scroll</name>
+        <uri>scroll</uri>
+    </function>
+    <function>
+        <name>search</name>
+        <uri>search</uri>
+    </function>
+    <function>
+        <name>name</name>
+        <uri>name</uri>
+    </function>
+</functions>

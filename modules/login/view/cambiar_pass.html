@@ -1,0 +1,21 @@
+<script type="text/javascript" src="<?php echo LOGIN_JS_PATH?>cambiar_pass.js"></script>
+<form>
+  <br><br>
+  <div class="row uniform">
+    <div class="12u$" id="error_pass" hidden>
+      <font color="red">&nbsp;&nbsp;No has introducido ninguna contraseña</font>
+    </div>
+    <div class="12u$" id="error_tokken" hidden>
+      <font color="red">&nbsp;&nbsp;El tokken de la url no es correcto</font>
+    </div>
+    <div class="12u$">
+      <input type="password" name="pass" id="pass" value="" placeholder="Introduza su nueva contraseña"/>
+    </div>
+  </div>
+  <br><br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><input type="button" id="change" value="Cambiar contraseña" class="special" /></li>
+    </ul>
+  </div>
+</form>

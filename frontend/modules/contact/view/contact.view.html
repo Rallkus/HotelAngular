@@ -1,0 +1,105 @@
+
+<div class="container">
+   <h3 class="tittle_agile_w3">Contact us</h3>
+    <div class="heading-underline">
+    <div class="h-u1"></div><div class="h-u2"></div><div class="h-u3"></div><div class="clearfix"></div>
+  </div>
+  <div class="agileinfo_mail_grids">
+    <form id="contact_form" name="contact_form" class="form-contact">
+      <span class="input input--chisato">
+
+        <label class="input__label input__label--chisato" for="inputName">
+          <span class="input__label-content input__label-content--chisato" data-content="Name">Name</span>
+        </label>
+        <input required ng-model="contact.inputName" type="text" id="inputName" name="inputName" placeholder="" class="input__field input__field--chisato" dir="auto" maxlength="100">
+
+        <span class="text-danger" ng-show="contact_form.inputName.$error.required && (contact_form.inputName.$dirty || contact_form.inputName.$touched)">The name is required</span>
+      </span>
+
+      <span class="input input--chisato">
+        <label class="input__label input__label--chisato" for="inputEmail">
+          <span class="input__label-content input__label-content--chisato" data-content="Email">Email</span>
+        </label>
+        <input required ng-model="contact.inputEmail" type="email" id="inputEmail" name="inputEmail" placeholder="" class="input__field input__field--chisato" maxlength="100" ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i">
+
+            <span class="text-danger" ng-show="contact_form.inputEmail.$error.required && (contact_form.inputEmail.$dirty || contact_form.inputEmail.$touched)">The email is required</span>
+            <span class="text-danger" ng-show="contact_form.inputEmail.$error.email">The email is not valid</span>
+
+
+      </span>
+
+      <label class="input__label input__label--chisato" for="inputSubject">
+        <span class="input__label-content input__label-content--chisato" data-content="Subject">Subject</span>
+      </label>
+
+      <span class="input input--chisato">
+        <select class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
+            <option value="compra">Info relativa a tu compra</option>
+            <option value="evento">Celebra un evento con nosotros</option>
+            <option value="programacion">Contacta con nuestro dpto de programacion</option>
+            <option value="Trabaja">Trabaja con nosotros</option>
+            <option value="proyectos">Deseas proponernos proyectos</option>
+            <option value="sugerencias">Haznos sugerencias</option>
+            <option value="reclamaciones">Atendemos tus reclamaciones</option>
+            <option value="club">Club rural_shop</option>
+            <option value="sociales">Proyectos sociales</option>
+            <option value="festivos">Apertura de festivos</option>
+            <option value="novedades">Te avisamos de nuestras novedades</option>
+            <option value="diferente">Algo diferente</option>
+        </select>
+
+        </label>
+        <span class="text-danger" ng-show="contact_form.inputSubject.$error.required && (contact_form.inputSubject.$dirty || contact_form.inputSubject.$touched)">The subject is required</span>
+      </span>
+
+
+
+      </span>
+      <span class="input__label-content input__label-content--chisato" data-content="Commentary">Commentary</span>
+       <textarea required ng-model="contact.inputMessage" class="input-block-level" rows="4" id="inputMessage" name="inputMessage" placeholder="Your comment here..." style="max-width: 100%;" dir="auto"></textarea>
+            <span class="text-danger" ng-show="contact_form.inputMessage.$error.required && (contact_form.inputMessage.$dirty || contact_form.inputMessage.$touched)">The comment is required</span>
+
+
+      <input class="btn btn-primary" type="submit" name="submit" id="submitBtn" value="Send"
+               ng-show="contact_form.inputName.$valid && contact_form.inputEmail.$valid && contact_form.inputMessage.$valid"
+               ng-click="SubmitContact()"/>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!--<form id="contact_form" name="contact_form" class="form-contact">
+    <h2 class="form-contact-heading">Contact Us</h2>
+    <div class="control-group">
+        <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100">
+    </div>
+    <div class="control-group">
+        <input type="text" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level" maxlength="100">
+    </div>
+    <div class="control-group">
+        <label for="sel1">Subject</label>
+        <select class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
+            <option value="compra">Info relativa a tu compra</option>
+            <option value="evento">Celebra un evento con nosotros</option>
+            <option value="programacion">Contacta con nuestro dpto de programacion</option>
+            <option value="Trabaja">Trabaja con nosotros</option>
+            <option value="proyectos">Deseas proponernos proyectos</option>
+            <option value="sugerencias">Haznos sugerencias</option>
+            <option value="reclamaciones">Atendemos tus reclamaciones</option>
+            <option value="club">Club rural_shop</option>
+            <option value="sociales">Proyectos sociales</option>
+            <option value="festivos">Apertura de festivos</option>
+            <option value="novedades">Te avisamos de nuestras novedades</option>
+            <option value="diferente">Algo diferente</option>
+        </select>
+    </div>
+    <div class="control-group">
+          <textarea class="input-block-level" rows="4" name="inputMessage" id="inputMessage" placeholder="Message *" style="max-width: 100%;" dir="auto"></textarea>
+    </div>
+
+    <input class="btn btn-primary" type="submit" name="submit" id="submitBtn" value="send" ng-click="SubmitContact()"/>
+
+    <div id="resultMessage" style="display: none;"></div>
+</form>-->

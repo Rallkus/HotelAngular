@@ -1,0 +1,35 @@
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Lo más visto</h2>
+									</header>
+									<section id="search" class="alt">
+									<form method="post">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+                  <button class="btn" id="map">Míralo en gmaps!</button>
+								</section>
+                  <br>
+                  <br>
+                <div>
+									<div ng-repeat="i in hotel" class="posts">
+                    <article>
+                      <a class="image"><img src="{{i.imagen}}" alt="Ha ocurrido un error" /></a>
+                      <h3>{{i.nombre}}</h3>
+                      <p>{{i.fecha_entrada}} - {{i.fecha_salida}}</p>
+                      <p>{{i.municipio}}, {{i.provincia}}, {{i.comunidad}}</p>
+                      <ul class="actions">
+                      <li><div class="button id" id="{{i.id}}">More</div></li>
+                      </ul>
+                    </article>
+									</div>
+                </div>
+									<div id="show_paginator"></div>
+								</section>
+
+								<section id="hotel_modal">
+</section>

@@ -28,7 +28,7 @@ class home_DAO {
       return $db->listar($stmt);
     }
     public function obtain_names($db){
-      $sql = "SELECT nombre FROM oferta_hotel";
+      $sql = "SELECT * FROM oferta_hotel ORDER BY `oferta_hotel`.`estrellas` DESC";
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
     }

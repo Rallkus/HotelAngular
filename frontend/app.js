@@ -1,10 +1,18 @@
 var hotel = angular.module('hotel',['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngCookies', ]);
+//var hotel = angular.module('hotel',['ngRoute']);
 hotel.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
                 // Home
-                //.when("/", {templateUrl: "frontend/modules/main/view/main.view.html", controller: "mainCtrl"})
-
+                .when("/", {
+                  templateUrl: "frontend/modules/home/view/home.view.html",
+                  controller: "homeCtrl",
+                  resolve: {
+                      hoteles: function (services) {
+                          return services.get('home', 'name');
+                      }
+                  }
+                })
                 // Contact
                 .when("/contact", {templateUrl: "frontend/modules/contact/view/contact.view.html",
                  controller: "contactCtrl"

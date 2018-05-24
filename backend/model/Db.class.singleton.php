@@ -15,7 +15,7 @@
         }
 
         private function setConexion() {
-            require_once ($_SERVER['DOCUMENT_ROOT'] .'/Hotel/model/Conf.class.singleton.php');
+            require_once ($_SERVER['DOCUMENT_ROOT'] .'/Hotel/backend/model/Conf.class.singleton.php');
             $conf = Conf::getInstance();
             /*
             $this->server = $conf->getHostDB();

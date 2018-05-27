@@ -1,4 +1,4 @@
-var hotel = angular.module('hotel',['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngCookies', ]);
+var hotel = angular.module('hotel',['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'infinite-scroll']);
 //var hotel = angular.module('hotel',['ngRoute']);
 hotel.config(['$routeProvider',
     function ($routeProvider) {

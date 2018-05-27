@@ -15,8 +15,8 @@
 								</section>
                   <br>
                   <br>
-                <div>
-									<div ng-repeat="i in hotel" class="posts">
+                <div infinite-scroll='nextScroll()'>
+									<div ng-repeat="i in filteredHoteles" class="posts">
                     <article>
                       <a class="image"><img src="{{i.imagen}}" alt="Ha ocurrido un error" /></a>
                       <h3>{{i.nombre}}</h3>

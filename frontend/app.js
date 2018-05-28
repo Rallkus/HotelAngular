@@ -19,12 +19,12 @@ hotel.config(['$routeProvider',
              })
 
                 // Events
-                .when("/events", {
-                    templateUrl: "frontend/modules/events/view/main.view.html",
-                    controller: "eventsCtrl",
+                .when("/list/details/:id", {
+                    templateUrl: "frontend/modules/list/view/details.view.html",
+                    controller: "detailsCtrl",
                     resolve: {
-                        events: function (services) {
-                            return services.get('events', 'maploader');
+                        oferta: function (services, $route) {
+                            return services.get('list', 'details_hotel', $route.current.params.id);
                         }
                     }
                 })

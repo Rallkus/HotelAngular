@@ -21,7 +21,7 @@ class controller_list {
       require_once(VIEW_PATH_INC . "menu.php");
     }
     function details_hotel() {
-      $arrArgument=$_POST['id'];
+      $arrArgument=$_GET['param'];
       $arrValue = loadModel(MODEL_LIST, "list_model", "obtain_offer", $arrArgument);
       echo json_encode($arrValue);
       exit();

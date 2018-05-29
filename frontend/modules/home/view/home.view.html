@@ -9,14 +9,17 @@
 									</header>
 									<section id="search" class="alt">
 									<form method="post">
-										<input type="text" name="query" id="query" placeholder="Search" />
+										<input type="text" name="query" id="query" ng-model= "query" ng-keyup="complete(query)" placeholder="Search" />
+                    <ul class="list-group" ng-model="hideAutocomplete" ng-hide="hideAutocomplete">
+                      <li class="list-group-item" ng-repeat="name in autocompleteNames track by $index" ng-click="fillQuery(name)">{{name}}</li>
+                    </ul>
 									</form>
-                  <button class="btn" id="map">Míralo en gmaps!</button>
+                  <button ng-click="cleanList()" class="btn" id="map">Míralo en gmaps!</button>
 								</section>
                   <br>
                   <br>
                 <div infinite-scroll='nextScroll()'>
-									<div ng-repeat="i in filteredHoteles" class="posts">
+									<div ng-repeat="i in filteredHoteles" infinite-scroll-disabled='scroll' class="posts">
                     <article>
                       <a class="image"><img src="{{i.imagen}}" alt="Ha ocurrido un error" /></a>
                       <h3>{{i.nombre}}</h3>

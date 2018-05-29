@@ -19,7 +19,7 @@
                   <br>
                   <br>
                 <div infinite-scroll='nextScroll()'>
-									<div ng-repeat="i in filteredHoteles" infinite-scroll-disabled='scroll' class="posts">
+									<div ng-repeat="i in filteredHoteles track by $index" infinite-scroll-disabled='scroll' class="posts">
                     <article>
                       <a class="image"><img src="{{i.imagen}}" alt="Ha ocurrido un error" /></a>
                       <h3>{{i.nombre}}</h3>
@@ -31,7 +31,23 @@
                     </article>
 									</div>
                 </div>
-									<div id="show_paginator"></div>
+                <div>
+									<div ng-repeat="i in filteredHotelesPag track by $index" class="posts">
+                    <article>
+                      <a class="image"><img src="{{i.imagen}}" alt="Ha ocurrido un error" /></a>
+                      <h3>{{i.nombre}}</h3>
+                      <p>{{i.fecha_entrada}} - {{i.fecha_salida}}</p>
+                      <p>{{i.municipio}}, {{i.provincia}}, {{i.comunidad}}</p>
+                      <ul class="actions">
+                        <a href='#/list/details/{{i.id}}'>More</a>
+                      </ul>
+                    </article>
+									</div>
+									<div id="show_paginator">
+                    <uib-pagination class="pagination-sm pagination" total-items="autocompleteHoteles.length" ng-model="currentPagePag"
+                      ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page=3></uib-pagination>
+                    </div>
+                    </div>
 								</section>
 
 								<section id="hotel_modal">

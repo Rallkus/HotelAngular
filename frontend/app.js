@@ -28,6 +28,15 @@ hotel.config(['$routeProvider',
                         }
                     }
                 })
+                .when("/list", {
+                    templateUrl: "frontend/modules/list/view/list.view.html",
+                    controller: "listCtrl",
+                    resolve: {
+                        list: function (services, $route) {
+                          return services.get('list', 'list');
+                        }
+                    }
+                })
 
                 .when("/events/:id", {
                     templateUrl: "frontend/modules/events/view/event.view.html",

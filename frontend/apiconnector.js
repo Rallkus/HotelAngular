@@ -2,6 +2,20 @@ hotel.factory("services", ['$http','$q', function ($http, $q) {
     var serviceBase = '/Hotel/backend/index.php?module=';
     var obj = {};
 
+        obj.getUrl = function (municipio) {
+            var defered=$q.defer();
+            var promise=defered.promise;
+            $http({
+                  method: 'GET',
+                  url: "https://maps.googleapis.com/maps/api/geocode/json?address="+municipio+"&key=AIzaSyDPKdo_uyKw27vzZ4xB-4xRUjkMkemGZCQ"
+              }).success(function(data, status, headers, config) {
+                 defered.resolve(data);
+              }).error(function(data, status, headers, config) {
+                 defered.reject(data);
+              });
+            return promise;
+        };
+
         obj.get = function (module, functi) {
             var defered=$q.defer();
             var promise=defered.promise;
@@ -92,6 +106,6 @@ hotel.factory("services", ['$http','$q', function ($http, $q) {
               });
             return promise;
         };
-        
+
     return obj;
 }]);

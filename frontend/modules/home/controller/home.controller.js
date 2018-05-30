@@ -28,9 +28,8 @@ hotel.controller('homeCtrl', function ($scope, services, hoteles) {
       }
 
 	};
-  $scope.cleanList = function() {
-  $scope.filteredHoteles = [];
-  $scope.scroll = false;
+  $scope.maps = function() {
+    
 };
 $scope.complete = function(string){
   $scope.hideAutocomplete = false;

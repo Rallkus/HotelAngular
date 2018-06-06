@@ -85,9 +85,8 @@ class controller_login {
       exit();
     }
     function activar() {
-      $tokken = $_POST['tokken'];
-      $arrValue = loadModel(MODEL_LOGIN, "login_model", "count_tokken", $tokken);
-      echo $arrValue[0]['number'];
+      $tokken = $_GET['param'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "count_tokken_user", $tokken);
       if($arrValue[0]['number']==1){
         $arrValue = loadModel(MODEL_LOGIN, "login_model", "activate_tokken", $tokken);
       }
@@ -124,7 +123,7 @@ class controller_login {
         exit();
     }
     function login() {
-        $error = array('username' => false, 'pass' => false, 'id' => false, 'avatar' => false, 'cuenta' => true,);
+        $error = array('username' => false, 'pass' => false, 'id' => false, 'avatar' => false, 'cuenta' => true, 'tokken' => "");
         $username = $_POST['username'];
         $pass = $_POST['pass'];
         $user = $_POST;
@@ -144,6 +143,10 @@ class controller_login {
             $error['pass']=true;
             $error['id']=null;
             $error['avatar']=null;
+          }else{
+            $error['tokken'] = md5(uniqid(rand(), true));
+            $user['tokken2']=$error['tokken'];
+            $arrValue = loadModel(MODEL_LOGIN, "login_model", "update_tokken", $user);
           }
         }
         echo json_encode($error);

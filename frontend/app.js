@@ -18,6 +18,23 @@ hotel.config(['$routeProvider',
                  controller: "contactCtrl"
              })
 
+                 .when("/register", {templateUrl: "frontend/modules/login/view/register.view.html",
+                  controller: "registerCtrl"
+              })
+
+                  .when("/recover", {templateUrl: "frontend/modules/login/view/recover_pass.view.html",
+               controller: "recoverCtrl"
+           })
+
+                  .when("/change_pass/:tokken", {templateUrl: "frontend/modules/login/view/cambiar_pass.view.html",
+                  controller: "changeCtrl",
+                  resolve: {
+                      tokken: function (services, $route) {
+                          return $route.current.params.tokken;
+                      }
+                  }
+              })
+
                 // Events
                 .when("/list/details/:id", {
                     templateUrl: "frontend/modules/list/view/details.view.html",
@@ -36,6 +53,26 @@ hotel.config(['$routeProvider',
                           return services.get('list', 'list');
                         }
                     }
+                })
+
+                .when("/login/activar/:token", {
+                    templateUrl: "frontend/modules/home/view/home.view.html",
+                    controller: "actCtrl",
+                    resolve: {
+                      data: function (services, $route) {
+                          return services.get('login', 'activar', $route.current.params.token);
+                      }
+                    }
+                })
+
+                .when("/login", {
+                    templateUrl: "frontend/modules/login/view/login.view.html",
+                    controller: "loginCtrl"
+                })
+
+                .when("/logout", {
+                    templateUrl: "frontend/modules/login/view/logout.view.html",
+                    controller: "logoutCtrl"
                 })
 
                 .when("/events/:id", {

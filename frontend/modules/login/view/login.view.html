@@ -1,0 +1,38 @@
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<form>
+  <br><br>
+  <div class="row uniform">
+    <div class="12u$" id="error_cuenta" ng-show="cuenta">
+      <font color="red">&nbsp;&nbsp;Esta cuenta no ha sido confirmada, revisa el email y apreta en el link que te hemos enviado para activar tu cuenta</font>
+    </div>
+    <div class="12u$" id="error_username" ng-show="username">
+      <font color="red">&nbsp;&nbsp;No has introducido ningún nombre de usuario</font>
+    </div>
+    <div class="12u$" id="error_username_exists" ng-show="username_exists">
+      <font color="red">&nbsp;&nbsp;El nombre de usuario que has introducido no existe</font>
+    </div>
+    <div class="12u$">
+      <input type="text" ng-model="form.username"name="username" id="username" value="" placeholder="Username"/>
+    </div>
+    <!-- Break -->
+    <div class="12u$" id="error_pass" ng-show="pass">
+      <font color="red">&nbsp;&nbsp;No has introducido ninguna contraseña</font>
+    </div>
+    <div class="12u$" id="error_user" ng-show="user">
+      <font color="red">&nbsp;&nbsp;La contraseña no se corresponde con el nombre de usuario</font>
+    </div>
+    <div class="12u$">
+      <input type="password" ng-model="form.pass"name="pass" id="pass" value="" placeholder="Password"/>
+    </div>
+  </div>
+  <br><br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><input type="button" type="submit" id="login" value="Login" class="special" ng-click="SubmitLogin()"/></li>
+      <li><input type="button" id="loginfb" value="Login con fb" class="special" /></li>
+      <li><input type="button" id="logintw" value="Login con tw" class="special" /></li>
+      <li align="right"><a href="#/register">No tienes una cuenta? Regístrate</a></li>
+      <li align="right"><a href="#/recover">He olvidado mi contraseña</a></li>
+    </ul>
+  </div>
+</form>

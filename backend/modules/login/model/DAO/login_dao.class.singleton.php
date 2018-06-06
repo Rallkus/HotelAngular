@@ -45,6 +45,11 @@ class login_DAO {
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
     }
+    public function count_tokken_user($db, $arrArgument){
+      $sql = "SELECT COUNT(*) as number FROM user WHERE tokken = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
     public function activate_tokken($db, $arrArgument){
       $sql = "UPDATE user SET activo = 'yes' WHERE tokken = '$arrArgument'";
       return $db->ejecutar($sql);
@@ -53,6 +58,12 @@ class login_DAO {
       $email=$arrArgument['email'];
       $pass=$arrArgument['pass'];
       $sql = "UPDATE user SET pass = '$pass' WHERE email = '$email'";
+      return $db->ejecutar($sql);
+    }
+    public function update_tokken($db, $arrArgument){
+      $tokken=$arrArgument['tokken2'];
+      $username=$arrArgument['username'];
+      $sql = "UPDATE user SET tokken2 = '$tokken' WHERE nombre = '$username'";
       return $db->ejecutar($sql);
     }
     public function update_recover($db, $arrArgument){
@@ -81,8 +92,8 @@ class login_DAO {
       $tokken = $arrArgument['tokken'];
       $imagen="/Hotel/media/default-avatar.png";
       $sql="INSERT INTO user (nombre, email, pass, tokken,"
-              . " activo, avatar) VALUES ('$nombre', '$email',"
-              . " '$pass', '$tokken', 'no', '$imagen')";
+              . " activo, avatar, tokken2) VALUES ('$nombre', '$email',"
+              . " '$pass', '$tokken', 'no', '$imagen', '')";
       return $db->ejecutar($sql);
     }
     public function login_social($db, $arrArgument){
@@ -91,8 +102,8 @@ class login_DAO {
       $id=$arrArgument['id'];
       $avatar=$arrArgument['avatar'];
       $sql="INSERT INTO user_social (id, email, username,"
-              . " avatar) VALUES ('$id', "
-              . "'$email', '$nombre', '$avatar')";
+              . " avatar, tokken2) VALUES ('$id', "
+              . "'$email', '$nombre', '$avatar', '')";
       return $db->ejecutar($sql);
     }
     public function insert_recover($db, $arrArgument){

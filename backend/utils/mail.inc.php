@@ -9,13 +9,13 @@
         switch ($arr['type']) {
             case 'alta':
                 $subject = 'Tu Alta en Hotel';
-                $ruta = "<a href='" . amigable("?module=login&function=activar&aux=" . $arr['tokken'], true) . "'>aqu&iacute;</a>";
+                $ruta = "<a href='http://127.0.0.1/Hotel/#/login/activar/" . $arr['tokken'] . "'>aqu&iacute;</a>";
                 $body = 'Gracias por unirte a nuestra aplicaci&oacute;n<br> Para finalizar el registro, pulsa ' . $ruta;
                 break;
 
             case 'modificacion':
                 $subject = 'Olvidar contraseña<br>';
-                $ruta = '<a href="' . amigable("?module=login&function=cambiar_pass", true) . $arr['tokken'].'">aqu&iacute;</a>';
+                $ruta = "<a href='http://127.0.0.1/Hotel/#/change_pass/" . $arr['tokken'] . "'>aqu&iacute;</a>";
                 $body = ' ' . $ruta;
                 break;
 

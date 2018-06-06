@@ -4,7 +4,6 @@ hotel.controller('detailsCtrl', function ($scope, services, oferta) {
 
 hotel.controller('listCtrl', function ($scope, services, list) {
     $scope.list = list;
-    console.log(list);
     var maker;
     var a = [];
     var hotel = [];

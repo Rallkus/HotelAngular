@@ -9,12 +9,20 @@
         <uri>register</uri>
     </function>
     <function>
+        <name>update_info</name>
+        <uri>update_info</uri>
+    </function>
+    <function>
         <name>register_user</name>
         <uri>register_user</uri>
     </function>
     <function>
         <name>login</name>
         <uri>login</uri>
+    </function>
+    <function>
+        <name>upload_avatar</name>
+        <uri>upload_avatar</uri>
     </function>
     <function>
         <name>logout</name>
@@ -43,5 +51,9 @@
     <function>
         <name>email</name>
         <uri>email</uri>
+    </function>
+    <function>
+        <name>get_user</name>
+        <uri>get_user</uri>
     </function>
 </functions>

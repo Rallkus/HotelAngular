@@ -23,6 +23,9 @@ class login_model {
     public function update_pass($arrArgument){
         return $this->bll->update_pass_BLL($arrArgument);
     }
+    public function update_info($arrArgument){
+        return $this->bll->update_info_BLL($arrArgument);
+    }
     public function update_tokken($arrArgument){
         return $this->bll->update_tokken_BLL($arrArgument);
     }
@@ -49,6 +52,9 @@ class login_model {
     }
     public function user($arrArgument){
         return $this->bll->user_BLL($arrArgument);
+    }
+    public function get_user($arrArgument){
+        return $this->bll->get_user_BLL($arrArgument);
     }
     public function count_email($arrArgument){
         return $this->bll->count_email_BLL($arrArgument);

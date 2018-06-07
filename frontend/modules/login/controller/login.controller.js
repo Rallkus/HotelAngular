@@ -192,7 +192,7 @@ var check = true;
 
 };
 });
-hotel.controller('menuCtrl', function ($scope, $rootScope, localStorage) {
+hotel.controller('menuCtrl', function ($scope, $rootScope, localStorage, services) {
     $rootScope.profileMenu=false;
     $rootScope.loginMenu=false;
     $rootScope.logoutMenu=false;
@@ -204,4 +204,76 @@ hotel.controller('menuCtrl', function ($scope, $rootScope, localStorage) {
       $rootScope.profileMenu=true;
       $rootScope.logoutMenu=true;
     }
+});
+hotel.controller('profileCtrl', function ($scope, services, user, load_com_prov_mun) {
+  $scope.profile=user[0];
+  console.log($scope.profile);
+
+  $scope.comunidades = {};
+  load_com_prov_mun.loadComunidad().then(function (response) {
+    $scope.comunidades=response.data;
+
+  });
+  $scope.prov = function () {
+    $scope.municipios={};
+    load_com_prov_mun.loadProvincia($scope.selectedCom.CCOM).then(function (response) {
+      $scope.provincias=response.data;
+      $scope.profile.comunidad=$scope.selectedCom.CCOM;
+    });
+  };
+  $scope.mun = function () {
+    $scope.profile.provincia=$scope.selectedProv.CPRO;
+      load_com_prov_mun.loadMunicipio($scope.selectedProv.CPRO).then(function (response) {
+      $scope.municipios=response.data;
+
+    });
+  };
+  $scope.selectMun = function () {
+      $scope.profile.municipio=$scope.selectedMun.DMUN50;
+    };
+
+  $scope.update = function () {
+    var data = {"tokken": $scope.profile.tokken2, "birthday": $scope.profile.birthday, "avatar": $scope.profile.avatar, "comunidad": $scope.profile.comunidad, "provincia": $scope.profile.provincia, "municipio": $scope.profile.municipio};
+    var update = JSON.stringify(data);
+    services.post('login', 'update_info', update).then(function (response) {
+      toastr.info("Tu información ha sido actualizada con éxito");
+    });
+  };
+  $scope.dropzoneConfig = {
+        'options': {
+            'url': 'backend/index.php?module=login&function=upload_avatar',
+            addRemoveLinks: true,
+            maxFileSize: 1000,
+            dictResponseError: "Ha ocurrido un error en el server",
+            acceptedFiles: 'image/*,.jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF,.rar,application/pdf,.psd'
+        },
+        'eventHandlers': {
+            'sending': function (file, formData, xhr) {},
+            'success': function (file, response) {
+                console.log(response);
+                response = JSON.parse(response);
+                //console.log(response);
+                if (response.result) {
+                    $(".msg").addClass('msg_ok').removeClass('msg_error').text('Success Upload image!!');
+                    $('.msg').animate({'right': '300px'}, 300);
+
+                    console.log(response.data);
+                    console.log($scope.profile.avatar);
+                    $scope.profile.avatar = response.data;
+                    console.log($scope.profile.avatar);
+
+
+                } else {
+
+                }
+            },
+            'removedfile': function (file, serverFileName) {
+                if (file.xhr.response) {
+                    $('.msg').text('').removeClass('msg_ok');
+                    $('.msg').text('').removeClass('msg_error');
+                    var data = jQuery.parseJSON(file.xhr.response);
+                    //services.post("user", "delete_avatar", JSON.stringify({'filename': data}));
+                }
+            }
+    }};
 });

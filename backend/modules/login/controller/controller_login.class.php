@@ -3,36 +3,6 @@ class controller_login {
   function __construct() {
       include (LIBS . 'password.php');
     }
-    function begin() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('modules/login/view/', 'login.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
-    function register() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('modules/login/view/', 'signup.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
-    function logout() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('modules/login/view/', 'logout.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
-    function recover_pass() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('modules/login/view/', 'recover_pass.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
-    function cambiar_pass() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('modules/login/view/', 'cambiar_pass.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
     function update_pass() {
       $error = array('tokken' => false, );
       $user = array('pass' => "", 'email' => "", );
@@ -46,6 +16,11 @@ class controller_login {
         $arrValue = loadModel(MODEL_LOGIN, "login_model", "update_pass", $user);
       }
       echo json_encode($error);
+      exit();
+    }
+    function update_info() {
+      echo "ol";
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "update_info", $_POST);
       exit();
     }
     function email() {
@@ -84,6 +59,12 @@ class controller_login {
       echo json_encode($user['tokken']);
       exit();
     }
+    function get_user(){
+      //echo $_GET['param'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_GET['param']);
+      echo json_encode($arrValue);
+      exit();
+    }
     function activar() {
       $tokken = $_GET['param'];
       $arrValue = loadModel(MODEL_LOGIN, "login_model", "count_tokken_user", $tokken);
@@ -92,6 +73,11 @@ class controller_login {
       }
 
       exit();
+    }
+    function upload_avatar() {
+        $result_avatar = upload_files();
+        $_SESSION['avatar'] = $result_avatar;
+        echo json_encode($result_avatar);
     }
     function register_user() {
         $error = array('username' => false, 'email' => false,);

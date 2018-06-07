@@ -49,20 +49,9 @@ class profile_DAO {
       return $db->listar($stmt);
     }
     public function user($db, $arrArgument){
-      $nombre=$arrArgument['username'];
-      $sql = "SELECT id as id, pass as pass, avatar as avatar FROM user WHERE nombre = '$nombre'";
+      $sql = "SELECT * FROM user WHERE tokken2 = '$arrArgument'";
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
-    }
-    public function register($db, $arrArgument){
-      $nombre=$arrArgument['username'];
-      $email=$arrArgument['email'];
-      $pass=$arrArgument['pass'];
-      $imagen="/Hotel/media/default-avatar.png";
-      $sql="INSERT INTO user (nombre, email, pass, tokken,"
-              . " activo, avatar) VALUES ('$nombre', '$email',"
-              . " '$pass', 'dasdsad', 'no', '$imagen')";
-      return $db->ejecutar($sql);
     }
 
 

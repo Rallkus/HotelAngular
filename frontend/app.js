@@ -13,6 +13,16 @@ hotel.config(['$routeProvider',
                       }
                   }
                 })
+                .when("/profile", {
+                  templateUrl: "frontend/modules/login/view/profile.view.html",
+                  controller: "profileCtrl",
+                  resolve: {
+                      user: function (services, localStorage) {
+                        console.log(localStorage.retrieve("tokken"));
+                          return services.get('login', 'get_user', localStorage.retrieve("tokken"));
+                      }
+                  }
+                })
                 // Contact
                 .when("/contact", {templateUrl: "frontend/modules/contact/view/contact.view.html",
                  controller: "contactCtrl"

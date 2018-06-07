@@ -60,6 +60,19 @@ class login_DAO {
       $sql = "UPDATE user SET pass = '$pass' WHERE email = '$email'";
       return $db->ejecutar($sql);
     }
+    public function update_info($db, $arrArgument){
+      $tokken=$arrArgument['tokken'];
+
+      $birthday=$arrArgument['birthday'];
+      $avatar=$arrArgument['avatar'];
+
+      $comunidad=$arrArgument['comunidad'];
+      $provincia=$arrArgument['provincia'];
+      echo $provincia;
+      $municipio=$arrArgument['municipio'];
+      $sql = "UPDATE user SET birthday = '$birthday', comunidad='$comunidad', provincia='$provincia', municipio='$municipio', avatar='$avatar' WHERE tokken2 = '$tokken'";
+      return $db->ejecutar($sql);
+    }
     public function update_tokken($db, $arrArgument){
       $tokken=$arrArgument['tokken2'];
       $username=$arrArgument['username'];
@@ -91,15 +104,20 @@ class login_DAO {
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
     }
+    public function get_user($db, $arrArgument){
+      $sql = "SELECT * FROM user WHERE tokken2 = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
     public function register($db, $arrArgument){
       $nombre=$arrArgument['username'];
       $email=$arrArgument['email'];
       $pass=$arrArgument['pass'];
       $tokken = $arrArgument['tokken'];
-      $imagen="/Hotel/media/default-avatar.png";
+      $imagen="/Hotel/backend/media/default-avatar.png";
       $sql="INSERT INTO user (nombre, email, pass, tokken,"
-              . " activo, avatar, tokken2) VALUES ('$nombre', '$email',"
-              . " '$pass', '$tokken', 'no', '$imagen', '')";
+              . " activo, avatar, tokken2, comunidad, provincia, municipio, playa, montanya, campo) VALUES ('$nombre', '$email',"
+              . " '$pass', '$tokken', 'no', '$imagen', '', '', '', '', '', '', '')";
       return $db->ejecutar($sql);
     }
     public function login_social($db, $arrArgument){
@@ -108,8 +126,8 @@ class login_DAO {
       $id=$arrArgument['id'];
       $avatar=$arrArgument['avatar'];
       $sql="INSERT INTO user_social (id, email, username,"
-              . " avatar, tokken2) VALUES ('$id', "
-              . "'$email', '$nombre', '$avatar', '')";
+              . " avatar, tokken2, comunidad, provincia, municipio, playa, montanya, campo) VALUES ('$id', "
+              . "'$email', '$nombre', '$avatar', '', '', '', '', '', '', '')";
       return $db->ejecutar($sql);
     }
     public function insert_recover($db, $arrArgument){

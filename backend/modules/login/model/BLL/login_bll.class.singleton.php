@@ -23,6 +23,9 @@ class login_bll{
     public function update_pass_BLL($arrArgument){
       return $this->dao->update_pass($this->db, $arrArgument);
     }
+    public function update_info_BLL($arrArgument){
+      return $this->dao->update_info($this->db, $arrArgument);
+    }
     public function update_tokken_BLL($arrArgument){
       return $this->dao->update_tokken($this->db, $arrArgument);
     }
@@ -49,6 +52,9 @@ class login_bll{
     }
     public function user_BLL($arrArgument){
       return $this->dao->user($this->db, $arrArgument);
+    }
+    public function get_user_BLL($arrArgument){
+      return $this->dao->get_user($this->db, $arrArgument);
     }
     public function count_email_recover_BLL($arrArgument){
       return $this->dao->count_email_recover($this->db, $arrArgument);

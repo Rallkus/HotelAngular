@@ -1,0 +1,50 @@
+<br><br>
+<img id="avatar_user" ng-src="{{profile.avatar}}" />
+<button id="dropzone" dropzone="dropzoneConfig"></button>
+<form>
+  <br><br>
+  <div class="row uniform">
+    <div class="12u$">
+      <input type="text" name="username" id="username" value="{{profile.nombre}}" placeholder="Username" readonly/>
+    </div>
+    <!-- Break -->
+    <div class="12u$">
+      <input type="text" name="email" id="email" value="{{profile.email}}" placeholder="Username" />
+    </div>
+    <!-- Break -->
+    <div class="12u$">
+      <input type="text "calendar ng-model="profile.birthday" name="birthday"   value="{{profile.birthday}}" placeholder="Birthday" readonly/>
+    </div>
+  </div>
+  <br><br>
+  <div class="4u 12u$(small)">
+    <div class="select-wrapper">
+      <select name="comunidad" id="comunidad" ng-options="comunidad.COM for comunidad in comunidades" ng-model="selectedCom" ng-change="prov()">
+        <option value="">- Seleccione comunidad -</option>
+      </select>
+    </div>
+  </div>
+  <br><br>
+  <div class="4u 12u$(small)">
+    <div class="select-wrapper">
+      <select name="provincia" id="provincia" ng-options="provincia.PRO for provincia in provincias" ng-model="selectedProv" ng-change="mun()">
+        <option value="0">- Seleccione provincia -</option>
+      </select>
+    </div>
+  </div>
+  <br><br>
+  <div class="4u 12u$(small)">
+    <div class="select-wrapper">
+      <select name="municipio" id="municipio" ng-options="municipio.DMUN50 for municipio in municipios" ng-change="selectMun()" ng-model="selectedMun">
+        <option value="0">- Seleccione municipio -</option>
+      </select>
+    </div>
+  </div>
+
+          <br><br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><input type="button" id="update" value="Actualizar" ng-click="update()" class="special" /></li>
+    </ul>
+  </div>
+</form>

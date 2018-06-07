@@ -26,6 +26,9 @@ class login_model {
     public function update_tokken($arrArgument){
         return $this->bll->update_tokken_BLL($arrArgument);
     }
+    public function update_tokken_social($arrArgument){
+        return $this->bll->update_tokken_social_BLL($arrArgument);
+    }
     public function select_email($arrArgument){
         return $this->bll->select_email_BLL($arrArgument);
     }

@@ -66,6 +66,12 @@ class login_DAO {
       $sql = "UPDATE user SET tokken2 = '$tokken' WHERE nombre = '$username'";
       return $db->ejecutar($sql);
     }
+    public function update_tokken_social($db, $arrArgument){
+      $tokken=$arrArgument['tokken'];
+      $id=$arrArgument['id'];
+      $sql = "UPDATE user_social SET tokken2 = '$tokken' WHERE id = '$id'";
+      return $db->ejecutar($sql);
+    }
     public function update_recover($db, $arrArgument){
       $email = $arrArgument['email'];
       $tokken= $arrArgument['tokken'];

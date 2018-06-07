@@ -75,13 +75,13 @@ class controller_login {
       if($user['email']==null){
         $user['email']="";
       }
-      echo $user['email'];
       $arrValue = loadModel(MODEL_LOGIN, "login_model", "count_social", $user['id']);
-      echo $arrValue[0]['number'];
       if($arrValue[0]['number']==0){
         $arrValue = loadModel(MODEL_LOGIN, "login_model", "login_social", $user);
       }
-
+      $user['tokken'] = md5(uniqid(rand(), true));
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "update_tokken_social", $user);
+      echo json_encode($user['tokken']);
       exit();
     }
     function activar() {

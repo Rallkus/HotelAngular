@@ -1,4 +1,4 @@
-hotel.controller('loginCtrl', function ($scope, services, $location, localStorage, $rootScope) {
+hotel.controller('loginCtrl', function ($scope, services, $location, localStorage, $rootScope, SocialLogin) {
   $scope.username=false;
   $scope.username_exists=false;
   $scope.cuenta=false;
@@ -7,6 +7,12 @@ hotel.controller('loginCtrl', function ($scope, services, $location, localStorag
   $scope.form = {
       username: "",
       pass: ""
+  };
+  $scope.LoginFb = function () {
+    SocialLogin.fb();
+  };
+  $scope.LoginTw = function () {
+    SocialLogin.tw();
   };
   $scope.SubmitLogin = function () {
   var data = {"username": $scope.form.username, "pass": $scope.form.pass};

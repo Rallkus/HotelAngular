@@ -26,6 +26,9 @@ class login_bll{
     public function update_tokken_BLL($arrArgument){
       return $this->dao->update_tokken($this->db, $arrArgument);
     }
+    public function update_tokken_social_BLL($arrArgument){
+      return $this->dao->update_tokken_social($this->db, $arrArgument);
+    }
     public function select_email_BLL($arrArgument){
       return $this->dao->select_email($this->db, $arrArgument);
     }

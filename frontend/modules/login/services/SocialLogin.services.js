@@ -1,4 +1,4 @@
-hotel.factory('SocialLogin', ['localStorage', '$location', 'services', function (localStorage, $location, services) {
+hotel.factory('SocialLogin', ['localStorage', '$location', 'services', '$rootScope', function (localStorage, $location, services, $rootScope) {
   var service = {};
     service.fb = fb;
     service.tw = tw;
@@ -33,6 +33,12 @@ hotel.factory('SocialLogin', ['localStorage', '$location', 'services', function 
                 var login = JSON.stringify(data);
                 services.post('login', 'login_social', login).then(function (response) {
                   console.log(response);
+                  $rootScope.profileMenu=true;
+                  $rootScope.loginMenu=false;
+                  $rootScope.logoutMenu=true;
+                  toastr.info("Bienvenido " + result.user.displayName);
+                  localStorage.save("tokken", response);
+                  $location.path('/');
                 });
 
             })
@@ -69,6 +75,12 @@ hotel.factory('SocialLogin', ['localStorage', '$location', 'services', function 
                 var login = JSON.stringify(data);
                 services.post('login', 'login_social', login).then(function (response) {
                   console.log(response);
+                  $rootScope.profileMenu=true;
+                  $rootScope.loginMenu=false;
+                  $rootScope.logoutMenu=true;
+                  toastr.info("Bienvenido " + result.user.displayName);
+                  localStorage.save("tokken", response);
+                  $location.path('/');
                 });
 
             })

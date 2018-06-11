@@ -20,6 +20,9 @@ class login_bll{
     public function count_BLL($arrArgument){
       return $this->dao->count($this->db, $arrArgument);
     }
+    public function count_likes_BLL($arrArgument){
+      return $this->dao->count_likes($this->db, $arrArgument);
+    }
     public function update_pass_BLL($arrArgument){
       return $this->dao->update_pass($this->db, $arrArgument);
     }
@@ -56,6 +59,18 @@ class login_bll{
     public function get_user_BLL($arrArgument){
       return $this->dao->get_user($this->db, $arrArgument);
     }
+    public function get_likes_BLL($arrArgument){
+      return $this->dao->get_likes($this->db, $arrArgument);
+    }
+    public function get_average_BLL($arrArgument){
+      return $this->dao->get_average($this->db, $arrArgument);
+    }
+    public function get_total_BLL($arrArgument){
+      return $this->dao->get_total($this->db, $arrArgument);
+    }
+    public function get_opinions_BLL($arrArgument){
+      return $this->dao->get_opinions($this->db, $arrArgument);
+    }
     public function count_email_recover_BLL($arrArgument){
       return $this->dao->count_email_recover($this->db, $arrArgument);
     }
@@ -73,6 +88,12 @@ class login_bll{
     }
     public function insert_recover_BLL($arrArgument){
       return $this->dao->insert_recover($this->db, $arrArgument);
+    }
+    public function insert_like_BLL($arrArgument){
+      return $this->dao->insert_like($this->db, $arrArgument);
+    }
+    public function insert_opinion_BLL($arrArgument){
+      return $this->dao->insert_opinion($this->db, $arrArgument);
     }
 
     /*public function create_hotel_BLL($arrArgument){

@@ -3,12 +3,6 @@ class controller_home {
   function __construct() {
 
     }
-    function begin() {
-        require_once(VIEW_PATH_INC . "header.php");
-        loadView('backend/modules/home/view/', 'home.html');
-        require_once(VIEW_PATH_INC . "footer.html");
-        require_once(VIEW_PATH_INC . "menu.php");
-    }
     function list() {
         $arrValue = loadModel(MODEL_HOME, "home_model", "obtain_best_offers");
         echo json_encode($arrValue);

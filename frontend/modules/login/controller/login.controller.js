@@ -205,9 +205,13 @@ hotel.controller('menuCtrl', function ($scope, $rootScope, localStorage, service
       $rootScope.logoutMenu=true;
     }
 });
-hotel.controller('profileCtrl', function ($scope, services, user, load_com_prov_mun) {
+hotel.controller('profileCtrl', function ($scope, services, user, load_com_prov_mun, likes, opinions) {
+  console.log(likes);
+  $scope.likes=likes;
+  $scope.opinions=opinions;
+  console.log(opinions);
   $scope.profile=user[0];
-  console.log($scope.profile);
+  //console.log($scope.profile);
 
   $scope.comunidades = {};
   load_com_prov_mun.loadComunidad().then(function (response) {

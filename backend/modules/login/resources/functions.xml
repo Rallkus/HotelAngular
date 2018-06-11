@@ -13,6 +13,30 @@
         <uri>update_info</uri>
     </function>
     <function>
+        <name>insert_opinion</name>
+        <uri>insert_opinion</uri>
+    </function>
+    <function>
+        <name>get_likes</name>
+        <uri>get_likes</uri>
+    </function>
+    <function>
+        <name>get_total</name>
+        <uri>get_total</uri>
+    </function>
+    <function>
+        <name>get_average</name>
+        <uri>get_average</uri>
+    </function>
+    <function>
+        <name>get_opinions</name>
+        <uri>get_opinions</uri>
+    </function>
+    <function>
+        <name>likes</name>
+        <uri>likes</uri>
+    </function>
+    <function>
         <name>register_user</name>
         <uri>register_user</uri>
     </function>

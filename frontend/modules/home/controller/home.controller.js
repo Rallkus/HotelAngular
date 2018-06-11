@@ -29,7 +29,7 @@ hotel.controller('homeCtrl', function ($scope, services, hoteles) {
 
 	};
   $scope.maps = function() {
-    
+
 };
 $scope.complete = function(string){
   $scope.hideAutocomplete = false;

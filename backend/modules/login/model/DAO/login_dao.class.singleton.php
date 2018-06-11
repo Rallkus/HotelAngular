@@ -20,6 +20,13 @@ class login_DAO {
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
     }
+    public function count_likes($db, $arrArgument){
+      $id_user=$arrArgument['user'];
+      $id_oferta=$arrArgument['oferta'];
+      $sql = "SELECT COUNT(*) as number FROM likes WHERE id_user = '$id_user' AND id_oferta='$id_oferta'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
     public function select_email($db, $arrArgument){
       $sql = "SELECT email as email FROM recover_pass WHERE tokken = '$arrArgument'";
       $stmt = $db->ejecutar($sql);
@@ -109,6 +116,26 @@ class login_DAO {
       $stmt = $db->ejecutar($sql);
       return $db->listar($stmt);
     }
+    public function get_likes($db, $arrArgument){
+      $sql = "SELECT * FROM likes WHERE id_user = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
+    public function get_average($db, $arrArgument){
+      $sql = "SELECT AVG(rating) as rating FROM opinion WHERE id_oferta = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
+    public function get_total($db, $arrArgument){
+      $sql = "SELECT COUNT(*) as count FROM opinion WHERE id_oferta = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
+    public function get_opinions($db, $arrArgument){
+      $sql = "SELECT * FROM opinion WHERE id_user = '$arrArgument'";
+      $stmt = $db->ejecutar($sql);
+      return $db->listar($stmt);
+    }
     public function register($db, $arrArgument){
       $nombre=$arrArgument['username'];
       $email=$arrArgument['email'];
@@ -135,6 +162,21 @@ class login_DAO {
       $tokken=$arrArgument['tokken'];
       $sql="INSERT INTO recover_pass (email, tokken"
               . ") VALUES ('$email', '$tokken')";
+      return $db->ejecutar($sql);
+    }
+    public function insert_like($db, $arrArgument){
+      $id_user=$arrArgument['user'];
+      $id_oferta=$arrArgument['oferta'];
+      $sql="INSERT INTO likes (id_user, id_oferta"
+              . ") VALUES ('$id_user', '$id_oferta')";
+      return $db->ejecutar($sql);
+    }
+    public function insert_opinion($db, $arrArgument){
+      $id_user=$arrArgument['user'];
+      $id_oferta=$arrArgument['oferta'];
+      $rating = $arrArgument['rating'];
+      $sql="INSERT INTO opinion (id_user, id_oferta, rating"
+              . ") VALUES ('$id_user', '$id_oferta', '$rating')";
       return $db->ejecutar($sql);
     }
 

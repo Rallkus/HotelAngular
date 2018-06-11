@@ -14,4 +14,13 @@
   <p>Incluye comida: {{hotel.comida}}</p>
   <p>Tiene spa: {{hotel.spa}}</p>
   <p>Observaciones: {{hotel.observaciones}}</p>
+  <ul class="actions">
+  <li><div class="button id" ng-click="Like()">Like!</div></li>
+  <li><div class="button id" ng-click="Opinion($event)" id="1">1</div></li>
+  <li><div class="button id" ng-click="Opinion($event)" id="2">2</div></li>
+  <li><div class="button id" ng-click="Opinion($event)" id="3">3</div></li>
+  <li><div class="button id" ng-click="Opinion($event)" id="4">4</div></li>
+  <li><div class="button id" ng-click="Opinion($event)" id="5">5</div></li>
+  </ul>
+  <p>El rating medio en este producto es {{average[0].rating}} ({{total[0].count}} opiniones)</p>
 </div>

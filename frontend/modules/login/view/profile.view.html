@@ -48,3 +48,11 @@
     </ul>
   </div>
 </form>
+<p>Tus likes</p>
+<div ng-repeat="i in likes track by $index" >
+  <p>Tu oferta con id {{i.id_oferta}} <a href='#/list/details/{{i.id_oferta}}'>More</a> </p>
+</div>
+<p>Tus opiniones</p>
+<div ng-repeat="i in opinions track by $index" >
+  <p>Has valorado la oferta con id {{i.id_oferta}} con un rating de {{i.rating}} <a href='#/list/details/{{i.id_oferta}}'>More</a> </p>
+</div>

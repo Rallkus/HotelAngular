@@ -18,8 +18,13 @@ hotel.config(['$routeProvider',
                   controller: "profileCtrl",
                   resolve: {
                       user: function (services, localStorage) {
-                        console.log(localStorage.retrieve("tokken"));
                           return services.get('login', 'get_user', localStorage.retrieve("tokken"));
+                      },
+                      likes: function (services, localStorage) {
+                          return services.get('login', 'get_likes', localStorage.retrieve("tokken"));
+                      },
+                      opinions: function (services, localStorage) {
+                          return services.get('login', 'get_opinions', localStorage.retrieve("tokken"));
                       }
                   }
                 })
@@ -52,6 +57,12 @@ hotel.config(['$routeProvider',
                     resolve: {
                         oferta: function (services, $route) {
                             return services.get('list', 'details_hotel', $route.current.params.id);
+                        },
+                        total: function (services, $route) {
+                            return services.get('login', 'get_total', $route.current.params.id);
+                        },
+                        average: function (services, $route) {
+                            return services.get('login', 'get_average', $route.current.params.id);
                         }
                     }
                 })

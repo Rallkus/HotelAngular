@@ -19,8 +19,29 @@ class controller_login {
       exit();
     }
     function update_info() {
-      echo "ol";
       $arrValue = loadModel(MODEL_LOGIN, "login_model", "update_info", $_POST);
+      exit();
+    }
+    function get_likes() {
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_GET['param']);
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_likes", $arrValue[0]['id']);
+      echo json_encode($arrValue);
+      exit();
+    }
+    function get_total() {
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_total", $_GET['param']);
+      echo json_encode($arrValue);
+      exit();
+    }
+    function get_average() {
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_average", $_GET['param']);
+      echo json_encode($arrValue);
+      exit();
+    }
+    function get_opinions() {
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_GET['param']);
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_opinions", $arrValue[0]['id']);
+      echo json_encode($arrValue);
       exit();
     }
     function email() {
@@ -63,6 +84,26 @@ class controller_login {
       //echo $_GET['param'];
       $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_GET['param']);
       echo json_encode($arrValue);
+      exit();
+    }
+    function likes(){
+      //echo $_GET['param'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_POST['tokken']);
+      $ids['user'] = $arrValue[0]['id'];
+      $ids['oferta'] = $_POST['id'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "count_likes", $ids);
+      if($arrValue[0]['number']==0){
+        $arrValue = loadModel(MODEL_LOGIN, "login_model", "insert_like", $ids);
+      }
+      exit();
+    }
+    function insert_opinion(){
+      //echo $_GET['param'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "get_user", $_POST['tokken']);
+      $ids['user'] = $arrValue[0]['id'];
+      $ids['oferta'] = $_POST['id'];
+      $ids['rating'] = $_POST['rating'];
+      $arrValue = loadModel(MODEL_LOGIN, "login_model", "insert_opinion", $ids);
       exit();
     }
     function activar() {
